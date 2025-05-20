@@ -1,0 +1,19 @@
+{
+  "plant_readings": [
+    {
+      "timestamp": "2025-05-20T10:00:00",
+      "temperature": 23.0,
+      "humidity": 0.6,
+      "soil_moisture": 0.5,
+      "light": 13000
+    }
+  ],
+  "livestock_readings": [
+    {
+      "timestamp": "2025-05-20T10:00:00",
+      "weight": 470,
+      "body_temp": 37.9,
+      "activity_level": 0.8
+    }
+  ]
+}

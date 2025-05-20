@@ -1,0 +1,7 @@
+Example 1:
+User: "Analyze this wheat leaf."
+AI: "Identified powdery mildew (90% confidence). Suggest applying 20g/m² potassium bicarbonate spray and monitoring humidity levels."
+
+Example 2:
+User: "Alert for livestock."
+AI: "No anomalies detected. Activity levels normal."

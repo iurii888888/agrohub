@@ -1,0 +1,59 @@
+# Advanced GPT Prompts for Smart Agro Hub
+
+1. Multi-modal Plant Diagnosis Prompt:
+"Given a plant leaf image file and the following environmental sensor data:
+- Temperature: {temperature} °C
+- Humidity: {humidity} %
+- Soil Moisture: {soil_moisture} %
+- Light Intensity: {light} lux
+
+Perform the following tasks:
+a) Identify any diseases or nutrient deficiencies with both common and scientific names.
+b) Provide probability estimates (0–100%) for each detected condition.
+c) Recommend a treatment protocol, including fertilizer types, dosages (e.g., grams per liter), pH adjustments, and application schedules.
+d) Outline a monitoring plan with key metrics and sampling frequency.
+e) Cite at least two authoritative sources (academic papers or agronomic guidelines) to support each recommendation."
+
+2. Livestock Condition & Nutrition Prompt:
+"Analyze the livestock health metrics:
+- Weight: {weight} kg
+- Body Temperature: {body_temp} °C
+- Heart Rate: {heart_rate} bpm
+- Activity Level Score: {activity_level} (0–1 scale)
+- Recent Feed Intake Log: {feed_history}
+
+Then:
+a) Diagnose any potential health issues or stressors.
+b) Calculate an optimized daily feed formulation, specifying ingredient quantities and nutritional breakdown (proteins, fats, fibers, vitamins, and minerals).
+c) Propose an environmental or behavioral intervention (exercise regimen, shelter adjustments).
+d) Estimate weight gain or production impact over the next 7 days.
+e) Reference relevant veterinary or animal nutrition standards."
+
+3. Predictive Alert Generation Prompt:
+"Input: Time-series data of environmental sensors and animal pen conditions (last 72 hours).
+Task:
+a) Detect anomalies or trend deviations that may signal impending issues (e.g., disease onslaught, equipment malfunction).
+b) Generate a ranked list of top three risks with risk probability scores.
+c) Provide immediate corrective measures and longer-term preventive strategies.
+d) Draft pseudocode illustrating how to implement continuous monitoring and automated alerts with threshold definitions."
+
+4. Voice-Enabled Advisory Flow Prompt:
+"As a voice-activated agritech assistant, design a multi-turn conversational flow for the user query: '{user_query}'. The flow must:
+a) Ask clarifying questions to fill required slots (e.g., plant stage, observed symptom).
+b) Include concise TTS prompts (<15 words each).
+c) Define intents, slots, and fallback responses for when input is unclear.
+d) Log user responses in a structured format for analytics.
+e) Provide example utterances and expected system responses for at least three different plant disease scenarios."
+
+5. Retrieval-Augmented Knowledge Prompt:
+"Using a FAISS-backed vector database of domain documents (NDVI studies, soil amendment protocols, livestock care manuals):
+a) Retrieve the top 3 documents relevant to the query: '{query}'.
+b) Extract and synthesize key findings applicable to the user's context.
+c) Present a step-by-step action plan.
+d) Embed APA-style citations for each fact."
+
+6. Sensor Calibration & Validation Prompt:
+"Given raw sensor calibration readings and ground truth measurements:
+a) Derive a calibration curve equation.
+b) Outline validation steps comparing sensor output to laboratory standards.
+c) Provide a Python code snippet that applies calibration in real-time to sensor data streams."

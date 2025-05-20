@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: smart-agro-hub
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: ""
+    startCommand: uvicorn code.main_api:app --host=0.0.0.0 --port=$PORT
+    workDir: .
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.2
