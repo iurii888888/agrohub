@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('/static/images/bg_full_hd_dark_lines.jpg') no-repeat center center fixed, #0f2027;
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.background-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('/static/images/bg-pattern.svg') repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 2;
+}
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.logo span {
+  color: #90ee90;
+}
+.logo img.icon {
+  width: 28px;
+  margin-right: 10px;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 1em;
+}
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 0.5em 1em;
+  color: white;
+  border-radius: 8px;
+}
+
+.main-content {
+  text-align: center;
+  margin-top: 3em;
+  position: relative;
+  z-index: 2;
+}
+.main-content h1 {
+  font-size: 3em;
+}
+.main-content h1 span {
+  color: #90ee90;
+}
+.subtitle {
+  margin-bottom: 1.5em;
+}
+.main-buttons .green, .main-buttons .blue {
+  padding: 1em 2em;
+  margin: 0.5em;
+  border-radius: 30px;
+  font-size: 1em;
+  border: none;
+}
+.green {
+  background-color: #4caf50;
+  color: white;
+}
+.blue {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-icon {
+  height: 18px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.panel {
+  margin: 2em auto;
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  width: 50%;
+}
+.panel-buttons button {
+  margin: 0.5em;
+  padding: 1em 2em;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.dashboard-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 2em;
+}
+.dashboard-actions button {
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.widgets {
+  position: absolute;
+  top: 5em;
+  right: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 2;
+}
+.widget {
+  background-color: rgba(0,0,0,0.6);
+  padding: 1em;
+  border-radius: 10px;
+  width: 200px;
+}
