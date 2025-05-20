@@ -4,8 +4,12 @@
 body {
   margin: 0;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
-  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
-  background-size: 600% 600%;
+  /* сначала — ваше фоновое фото, затем градиент */
+  background:
+    url('/static/images/bg_full_hd_dark_lines.jpg') no-repeat center center fixed,
+    linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+  /* фото растянуть на весь экран, градиент — по анимации */
+  background-size: cover, 600% 600%;
   animation: animatedGradient 30s ease infinite;
   color: white;
   overflow-x: hidden;
@@ -13,8 +17,8 @@ body {
 }
 
 @keyframes animatedGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
