@@ -7,8 +7,13 @@
   <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 <body>
+  <div class="background-overlay"></div>
+
   <header class="navbar">
-    <div class="logo">AgroHub <span>AI</span></div>
+    <div class="logo">
+      <img src="/static/images/leaf-icon.svg" alt="Logo" class="icon" />
+      AgroHub <span>AI</span>
+    </div>
     <nav>
       <ul>
         <li><a href="#">Dashboard</a></li>
@@ -26,29 +31,28 @@
     <h1>AgroHub <span>AI</span></h1>
     <p class="subtitle">Plant & Livestock Health Analyzer using AI and Sensor Fusion</p>
     <div class="main-buttons">
-      <button class="green">Start Analysis</button>
-      <button class="blue">Get Recommendation</button>
+      <button class="green"><img src="/static/images/plant.svg" class="btn-icon" />Start Analysis</button>
+      <button class="blue"><img src="/static/images/ai.svg" class="btn-icon" />Get Recommendation</button>
     </div>
 
     <section class="panel">
       <h2>AgroHub</h2>
       <p>Advanced agricultural insights powered by AI</p>
       <div class="panel-buttons">
-        <button>Analyze Plant Health</button>
-        <button>Get Recommended</button>
+        <button><img src="/static/images/leaf-icon.svg" class="btn-icon" />Analyze Plant Health</button>
+        <button><img src="/static/images/ai.svg" class="btn-icon" />Get Recommended</button>
       </div>
     </section>
 
     <div class="dashboard-actions">
-      <button>Upload Data</button>
-      <button>Generate Report</button>
-      <button>Reveal Background</button>
-      <button>GitHub</button>
+      <button><img src="/static/images/upload.svg" class="btn-icon" />Upload Data</button>
+      <button><img src="/static/images/report.svg" class="btn-icon" />Generate Report</button>
+      <button><img src="/static/images/bg.svg" class="btn-icon" />Reveal Background</button>
+      <button><img src="/static/images/github.svg" class="btn-icon" />GitHub</button>
     </div>
   </main>
 
   <aside class="widgets">
-    <!-- ВСТАВКА ИЗ BACKEND -->
     {{ weather_block | safe }}
 
     <div class="widget">
@@ -62,4 +66,3 @@
   </aside>
 </body>
 </html>
-
