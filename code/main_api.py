@@ -10,12 +10,26 @@ analyzer = HealthAnalyzer()
 recommender = Recommender()
 templates = Jinja2Templates(directory="templates")
 
-# Подключение папки со статикой (если появятся стили, изображения и т.п.)
+# Подключение статических файлов (CSS, изображения и т.п.)
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Вспомогательная функция для вывода погодного блока
+async def get_weather_html() -> str:
+    return """
+    <div class="weather-block">
+      🌡️ Temperature: 15°C<br>
+      💧 Humidity: 78%<br>
+      ☁️ Condition: Light Rain
+    </div>
+    """
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    weather_block = await get_weather_html()
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "weather_block": weather_block
+    })
 
 @app.post("/analyze_plant/")
 async def analyze_plant(sensor_data: dict):

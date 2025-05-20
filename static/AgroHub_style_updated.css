@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: animatedGradient 30s ease infinite;
+  color: white;
+  overflow-x: hidden;
+}
+
+@keyframes animatedGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1, h2 {
+  text-align: center;
+  color: #90ee90;
+}
+
+.hero {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.content {
+  z-index: 2;
+  padding: 2em;
+}
+
+.buttons {
+  margin-top: 1em;
+}
+
+.btn {
+  padding: 0.75em 1.5em;
+  background: #4caf50;
+  border: none;
+  color: white;
+  margin: 0 0.5em;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+form {
+  background: rgba(255,255,255,0.05);
+  margin: 2em auto;
+  max-width: 600px;
+  padding: 1em;
+  border-radius: 8px;
+}
+
+textarea, input {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: none;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+#temperature-info {
+  background: rgba(255,255,255,0.08);
+  margin: 2em auto;
+  padding: 1em;
+  max-width: 600px;
+  border-radius: 10px;
+  text-align: center;
+}
