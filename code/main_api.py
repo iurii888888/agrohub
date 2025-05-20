@@ -1,11 +1,14 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 from code.analysis import HealthAnalyzer
 from code.recommendations import Recommender
 
 app = FastAPI()
 analyzer = HealthAnalyzer()
 recommender = Recommender()
+templates = Jinja2Templates(directory="templates")
+
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
@@ -13,8 +16,27 @@ async def root():
     <html>
         <head>
             <title>AgroHub AI API</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f8f8f8;
+                    color: #333;
+                    padding: 40px;
+                }
+                h1 {
+                    color: #4caf50;
+                }
+                code {
+                    background-color: #eee;
+                    padding: 2px 4px;
+                    border-radius: 4px;
+                }
+                a {
+                    color: #2196f3;
+                }
+            </style>
         </head>
-        <body style="font-family:Arial; background-color:#f8f8f8; padding:40px;">
+        <body>
             <h1>🌱 AgroHub API is Live!</h1>
             <p>Use the endpoints below:</p>
             <ul>
@@ -26,15 +48,21 @@ async def root():
     </html>
     """
 
+
 @app.post("/analyze_plant/")
 async def analyze_plant(sensor_data: dict):
-    report = analyzer.analyze_plant_health(sensor_data['image_path'], sensor_data)
+    image_path = sensor_data.get('image_path')
+    if not image_path:
+        return {"error": "Missing image_path"}
+    report = analyzer.analyze_plant_health(image_path, sensor_data)
     return report
+
 
 @app.post("/recommend/")
 async def get_recommendations(data: dict):
     return recommender.recommend_actions(
-        data['image_path'],
-        data['sensor_dict'],
-        data['animal_metrics']
+        data.get('image_path'),
+        data.get('sensor_dict', {}),
+        data.get('animal_metrics', {})
     )
+
