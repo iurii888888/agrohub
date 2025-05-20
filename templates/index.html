@@ -1,96 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AgroHub — Smart Health Analysis</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroHub AI</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 <body>
-  <!-- Дождь -->
-  <canvas id="rain"></canvas>
+  <header class="navbar">
+    <div class="logo">AgroHub <span>AI</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Plant Health</a></li>
+        <li><a href="#">Livestock Health</a></li>
+        <li><a href="#">Alerts</a></li>
+        <li><a href="#">Insights</a></li>
+        <li><a href="#">Reports</a></li>
+      </ul>
+    </nav>
+    <button class="logout-btn">LogOut</button>
+  </header>
 
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1>🌿 AgroHub AI</h1>
-      <p>Plant & Livestock Health Analyzer using AI and Sensor Fusion</p>
-      <div class="buttons">
-        <a href="/docs" class="btn">Try API</a>
-        <button class="btn secondary" onclick="showBackground()">Reveal Background</button>
-        <a href="https://github.com/iurii888888/agrohub" class="btn outline">GitHub</a>
-      </div>
-      <div id="bgPreview" class="background-preview">
-        <img src="/static/backgrounds/plant_gradient_animated.jpg" alt="Background Preview">
-      </div>
+  <main class="main-content">
+    <h1>AgroHub <span>AI</span></h1>
+    <p class="subtitle">Plant & Livestock Health Analyzer using AI and Sensor Fusion</p>
+    <div class="main-buttons">
+      <button class="green">Start Analysis</button>
+      <button class="blue">Get Recommendation</button>
     </div>
-    <div class="weather-box" id="weatherBox">
-      <span id="temp"></span><br>
-      <span id="humidity"></span><br>
-      <span id="condition"></span><br>
-      <span id="rainChance"></span><br>
-      <span id="sunrise"></span><br>
-      <span id="sunset"></span>
+
+    <section class="panel">
+      <h2>AgroHub</h2>
+      <p>Advanced agricultural insights powered by AI</p>
+      <div class="panel-buttons">
+        <button>Analyze Plant Health</button>
+        <button>Get Recommended</button>
+      </div>
+    </section>
+
+    <div class="dashboard-actions">
+      <button>Upload Data</button>
+      <button>Generate Report</button>
+      <button>Reveal Background</button>
+      <button>GitHub</button>
     </div>
-  </section>
+  </main>
 
-  <script>
-    function showBackground() {
-      const bg = document.getElementById("bgPreview");
-      bg.style.display = "block";
-      bg.scrollIntoView({ behavior: "smooth" });
-    }
+  <aside class="widgets">
+    <!-- ВСТАВКА ИЗ BACKEND -->
+    {{ weather_block | safe }}
 
-    async function fetchWeather() {
-      try {
-        const res = await fetch("https://wttr.in/?format=j1");
-        const data = await res.json();
-        const cur = data.current_condition[0];
-        const w = data.weather[0];
-        document.getElementById("temp").innerText = `🌡️ Temperature: ${cur.temp_C}°C`;
-        document.getElementById("humidity").innerText = `💧 Humidity: ${cur.humidity}%`;
-        document.getElementById("condition").innerText = `🌀 Condition: ${cur.weatherDesc[0].value}`;
-        document.getElementById("rainChance").innerText = `🌧️ Rain: ${w.hourly[0].chanceofrain}%`;
-        document.getElementById("sunrise").innerText = `🌅 Sunrise: ${w.astronomy[0].sunrise}`;
-        document.getElementById("sunset").innerText = `🌇 Sunset: ${w.astronomy[0].sunset}`;
-      } catch {
-        document.getElementById("weatherBox").innerText = "Weather unavailable";
-      }
-    }
-    fetchWeather();
-
-    // дождь
-    const canvas = document.getElementById("rain");
-    const ctx = canvas.getContext("2d");
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-    const drops = Array.from({ length: 120 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      l: Math.random() * 20 + 10,
-      xs: -2 + Math.random() * 4,
-      ys: Math.random() * 10 + 10
-    }));
-    function drawRain() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = "rgba(174,194,224,0.5)";
-      ctx.lineWidth = 1;
-      ctx.lineCap = "round";
-      drops.forEach(d => {
-        ctx.beginPath();
-        ctx.moveTo(d.x, d.y);
-        ctx.lineTo(d.x + d.xs, d.y + d.l);
-        ctx.stroke();
-      });
-      drops.forEach(d => {
-        d.x += d.xs; d.y += d.ys;
-        if (d.x > canvas.width || d.y > canvas.height) {
-          d.x = Math.random() * canvas.width;
-          d.y = -20;
-        }
-      });
-    }
-    setInterval(drawRain, 33);
-  </script>
+    <div class="widget">
+      <h3>🐄 Livestock</h3>
+      <p>Status: Good</p>
+    </div>
+    <div class="widget">
+      <h3>🌿 Crop Health</h3>
+      <p>07s Moderate</p>
+    </div>
+  </aside>
 </body>
 </html>
 
