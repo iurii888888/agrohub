@@ -1,94 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AgroHub AI Platform</title>
-  <link rel="stylesheet" href="/static/style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #1a1a1a, #2c3e50);
-      color: #ecf0f1;
-    }
-    header {
-      background-color: #1abc9c;
-      padding: 2rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #fff;
-    }
-    section {
-      max-width: 960px;
-      margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-    section h2 {
-      color: #1abc9c;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin: 0.5rem 0;
-    }
-    code {
-      background: #333;
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
-      color: #e74c3c;
-    }
-    a {
-      color: #1abc9c;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
-    .logo {
-      max-width: 120px;
-      margin: 1rem auto;
-      display: block;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgroHub | Smart Agriculture AI</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
-<body>
-  <header>
-    <img src="/static/logo.svg" alt="AgroHub Logo" class="logo">
-    <h1>Welcome to AgroHub AI Platform</h1>
-  </header>
-  <section>
-    <h2>🌿 What is AgroHub?</h2>
-    <p>AgroHub is an AI-powered web platform for analyzing the health of plants and livestock using sensor data and advanced diagnostics.</p>
-
-    <h2>🚀 API Endpoints</h2>
-    <ul>
-      <li><b>POST</b> <code>/analyze_plant/</code> — Analyze plant health</li>
-      <li><b>POST</b> <code>/recommend/</code> — Get smart recommendations</li>
-    </ul>
-
-    <h2>🧪 Try it now</h2>
-    <ul>
-      <li><a href="/docs">Swagger UI (Interactive)</a></li>
-      <li><a href="/redoc">ReDoc (Documentation)</a></li>
-    </ul>
-  </section>
-  <footer>
-    © 2025 AgroHub AI — Smart Agriculture for the Future
-  </footer>
+<body class="theme-dark">
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>🌿 AgroHub AI</h1>
+      <p>Your AI-powered assistant for plant & livestock health analysis.</p>
+      <div class="buttons">
+        <a href="/docs" class="btn">📘 API Docs</a>
+        <a href="/redoc" class="btn secondary">📄 ReDoc</a>
+        <a href="/" class="btn outline">🏡 Home</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,88 +1,74 @@
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 2em;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
+  overflow-x: hidden;
 }
 
-.theme-dark {
-    background-color: #121212;
-    color: #ffffff;
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.theme-light {
-    background-color: #ffffff;
-    color: #121212;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png'), rgba(0,0,0,0.5);
+  background-blend-mode: overlay;
+  z-index: 1;
+}
+
+.content {
+  z-index: 2;
+  max-width: 600px;
 }
 
 h1 {
-    color: #90ee90;
-    transition: color 0.3s ease;
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+  color: #90ee90;
 }
 
-form {
-    background-color: #1e1e1e;
-    padding: 1em;
-    border-radius: 8px;
-    margin-bottom: 2em;
-    transition: background-color 0.3s ease;
+p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5em;
 }
 
-.theme-light form {
-    background-color: #f0f0f0;
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
+.btn {
+  padding: 0.75em 1.5em;
+  font-size: 1rem;
+  border-radius: 30px;
+  background: #4caf50;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
 }
 
-input,
-textarea {
-    width: 100%;
-    padding: 0.5em;
-    background-color: #2e2e2e;
-    border: none;
-    color: #fff;
-    margin-bottom: 1em;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.btn.secondary {
+  background: #2196f3;
 }
 
-.theme-light input,
-.theme-light textarea {
-    background-color: #ffffff;
-    color: #000;
+.btn.outline {
+  background: transparent;
+  border: 2px solid white;
 }
 
-button {
-    padding: 0.7em 1.5em;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #388e3c;
-}
-
-pre {
-    background-color: #2e2e2e;
-    padding: 1em;
-    border-radius: 8px;
-    white-space: pre-wrap;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    color: #dcdcdc;
-}
-
-.theme-light pre {
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.btn:hover {
+  background: #66bb6a;
 }
