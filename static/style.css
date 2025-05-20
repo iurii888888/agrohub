@@ -1,4 +1,4 @@
-
+/* ➤ Общие стили */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -6,85 +6,81 @@ body {
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
   color: white;
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
 @keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-canvas#rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-.hero {
-  height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png'), rgba(0,0,0,0.3);
-  background-blend-mode: overlay;
-  z-index: 1;
-}
-.content {
-  z-index: 2;
-  max-width: 700px;
-  padding: 20px;
-}
-h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5em;
-  color: #90ee90;
-}
-p {
-  font-size: 1.3rem;
-  margin-bottom: 1.5em;
-}
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  flex-wrap: wrap;
-}
-.btn {
-  padding: 0.75em 1.5em;
-  font-size: 1rem;
-  border-radius: 30px;
-  background: #4caf50;
-  color: white;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-.btn.secondary {
-  background: #2196f3;
-}
-.btn.outline {
-  background: transparent;
-  border: 2px solid white;
-}
-.btn:hover {
-  background: #66bb6a;
-}
+
+/* ➤ Hero */
+canvas#rain { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+.overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1; }
+.content { position: relative; z-index: 2; max-width: 700px; padding: 20px; }
+h1 { font-size: 3rem; margin-bottom: 0.5em; color: #90ee90; }
+p { font-size: 1.3rem; margin-bottom: 1.5em; }
+.buttons { display: flex; justify-content: center; gap: 1em; flex-wrap: wrap; }
+.btn { padding: .75em 1.5em; border-radius: 30px; background: #4caf50; color: #fff; text-decoration: none; transition: .3s; }
+.btn.secondary { background: #2196f3; }
+.btn.outline { background: transparent; border: 2px solid #fff; }
+.btn:hover { background: #66bb6a; }
+
+/* ➤ Weather box */
 .weather-box {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  background: rgba(0,0,0,0.6);
-  padding: 10px 15px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  z-index: 3;
+  position: absolute; top: 1em; right: 1em;
+  background: rgba(0,0,0,0.6); padding: .8em; border-radius: 8px;
+  font-size: .9rem; line-height: 1.4; z-index: 3;
+}
+
+/* ➤ Фоновые облака */
+#clouds { position: fixed; top: 0; left: 0; width: 100%; height: 30vh; overflow: hidden; pointer-events: none; z-index: 1; }
+.cloud { position: absolute; top: 5%; width: 20%; opacity: 0.7; }
+.cloud1 { left: -25%; animation: moveClouds 60s linear infinite; }
+.cloud2 { left: -40%; top: 15%; width: 25%; animation: moveClouds 80s linear infinite reverse; }
+.cloud3 { left: -50%; top: 25%; width: 22%; animation: moveClouds 70s linear infinite; }
+
+@keyframes moveClouds {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(150vw); }
+}
+
+/* ➤ Lightning */
+.lightning {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  animation: flash 0.2s ease-out;
+  pointer-events: none; z-index: 4;
+}
+@keyframes flash {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ➤ Кот в домике */
+.cat-container {
+  position: fixed; bottom: 1em; right: 1em; width: 150px; z-index: 5;
+  animation: floatCat 6s ease-in-out infinite;
+}
+.cat-container img {
+  width: 100%; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+@keyframes floatCat {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-10px); }
+}
+
+/* ➤ Preview background */
+.background-preview {
+  margin-top: 2em; text-align: center; display: none; z-index: 2;
+}
+.background-preview img {
+  max-width: 90%; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

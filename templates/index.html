@@ -4,26 +4,19 @@
   <meta charset="UTF-8">
   <title>AgroHub — Smart Health Analysis</title>
   <link rel="stylesheet" href="/static/style.css">
-  <style>
-    .background-preview {
-      margin-top: 2em;
-      text-align: center;
-      display: none;
-    }
-    .background-preview img {
-      max-width: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-      animation: fadeIn 2s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
 </head>
 <body>
+  <!-- Canvas для дождя -->
   <canvas id="rain"></canvas>
+
+  <!-- Облака -->
+  <div id="clouds">
+    <img src="/static/images/cloud.png" class="cloud cloud1" alt="cloud">
+    <img src="/static/images/cloud.png" class="cloud cloud2" alt="cloud">
+    <img src="/static/images/cloud.png" class="cloud cloud3" alt="cloud">
+  </div>
+
+  <!-- Основной экран -->
   <section class="hero">
     <div class="overlay"></div>
     <div class="content">
@@ -42,83 +35,88 @@
       <span id="temp"></span><br>
       <span id="humidity"></span><br>
       <span id="condition"></span><br>
-      <span id="rain"></span><br>
+      <span id="rainChance"></span><br>
       <span id="sunrise"></span><br>
       <span id="sunset"></span>
     </div>
   </section>
 
+  <!-- Кот в домике -->
+  <div class="cat-container">
+    <img src="/static/images/orange_cat.gif" alt="Orange Cat Licking Paw">
+  </div>
+
   <script>
+    // Reveal background
     function showBackground() {
       const bg = document.getElementById("bgPreview");
       bg.style.display = "block";
       bg.scrollIntoView({ behavior: "smooth" });
     }
 
+    // Fetch weather
     async function fetchWeather() {
       try {
-        const response = await fetch("https://wttr.in/?format=j1");
-        const data = await response.json();
-        const current = data.current_condition[0];
-        const weather = data.weather[0];
-        document.getElementById("temp").innerText = `🌡️ Temperature: ${current.temp_C}°C`;
-        document.getElementById("humidity").innerText = `💧 Humidity: ${current.humidity}%`;
-        document.getElementById("condition").innerText = `🌀 Condition: ${current.weatherDesc[0].value}`;
-        document.getElementById("rain").innerText = `🌧️ Rain Expected In: ${weather.hourly[0].chanceofrain}%`;
-        document.getElementById("sunrise").innerText = `🌅 Sunrise: ${weather.astronomy[0].sunrise}`;
-        document.getElementById("sunset").innerText = `🌇 Sunset: ${weather.astronomy[0].sunset}`;
-      } catch (e) {
+        const res = await fetch("https://wttr.in/?format=j1");
+        const data = await res.json();
+        const cur = data.current_condition[0];
+        const w = data.weather[0];
+        document.getElementById("temp").innerText = `🌡️ Temperature: ${cur.temp_C}°C`;
+        document.getElementById("humidity").innerText = `💧 Humidity: ${cur.humidity}%`;
+        document.getElementById("condition").innerText = `🌀 Condition: ${cur.weatherDesc[0].value}`;
+        document.getElementById("rainChance").innerText = `🌧️ Rain: ${w.hourly[0].chanceofrain}%`;
+        document.getElementById("sunrise").innerText = `🌅 Sunrise: ${w.astronomy[0].sunrise}`;
+        document.getElementById("sunset").innerText = `🌇 Sunset: ${w.astronomy[0].sunset}`;
+      } catch {
         document.getElementById("weatherBox").innerText = "Weather unavailable";
       }
     }
-
     fetchWeather();
 
-    // Raindrop animation
+    // Rain
     const canvas = document.getElementById("rain");
     const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const drops = [];
-
-    for (let i = 0; i < 100; i++) {
-      drops.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        l: Math.random() * 20 + 10,
-        xs: -2 + Math.random() * 4 + 2,
-        ys: Math.random() * 10 + 10
-      });
-    }
-
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    const drops = Array.from({ length: 120 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      l: Math.random() * 20 + 10,
+      xs: -2 + Math.random() * 4,
+      ys: Math.random() * 10 + 10
+    }));
     function drawRain() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.strokeStyle = "rgba(174,194,224,0.5)";
       ctx.lineWidth = 1;
       ctx.lineCap = "round";
-      for (let i = 0; i < drops.length; i++) {
-        const d = drops[i];
+      drops.forEach(d => {
         ctx.beginPath();
         ctx.moveTo(d.x, d.y);
         ctx.lineTo(d.x + d.xs, d.y + d.l);
         ctx.stroke();
-      }
-      moveRain();
-    }
-
-    function moveRain() {
-      for (let i = 0; i < drops.length; i++) {
-        const d = drops[i];
-        d.x += d.xs;
-        d.y += d.ys;
+      });
+      drops.forEach(d => {
+        d.x += d.xs; d.y += d.ys;
         if (d.x > canvas.width || d.y > canvas.height) {
           d.x = Math.random() * canvas.width;
           d.y = -20;
         }
-      }
+      });
     }
-
     setInterval(drawRain, 33);
+
+    // Lightning flashes
+    function flashLightning() {
+      const flash = document.createElement("div");
+      flash.className = "lightning";
+      document.body.appendChild(flash);
+      setTimeout(() => flash.remove(), 200);
+    }
+    setInterval(() => {
+      if (Math.random() < 0.05) flashLightning();
+    }, 1000);
   </script>
 </body>
 </html>
+
