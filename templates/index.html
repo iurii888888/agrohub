@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AgroHub Health Analyzer</title>
+  <style>
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 2em;
+    }
+    h1 {
+      color: #90ee90;
+    }
+    form {
+      background: #1e1e1e;
+      padding: 1em;
+      border-radius: 8px;
+      margin-bottom: 2em;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5em;
+      background: #2e2e2e;
+      border: none;
+      color: white;
+      margin-bottom: 1em;
+    }
+    button {
+      padding: 0.7em 1.5em;
+      background: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    pre {
+      background: #222;
+      padding: 1em;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌱 AgroHub: Plant & Animal Health Analyzer</h1>
+
+  <form id="plantForm">
+    <label>Image Path (URL or filename):</label>
+    <input type="text" id="plantImage" value="images/plant.jpg" />
+
+    <label>Sensor Data (JSON):</label>
+    <textarea id="plantSensorData">
+{
+  "temperature": 24,
+  "humidity": 0.6,
+  "soil_moisture": 0.4,
+  "light": 14000
+}
+    </textarea>
+
+    <button type="submit">Analyze Plant</button>
+  </form>
+
+  <form id="recommendForm">
+    <label>Image Path (URL or filename):</label>
+    <input type="text" id="recImage" value="images/plant.jpg" />
+
+    <label>Sensor Dict (JSON):</label>
+    <textarea id="recSensor">
+{
+  "temperature": 24,
+  "humidity": 0.6,
+  "soil_moisture": 0.4,
+  "light": 14000
+}
+    </textarea>
+
+    <label>Animal Metrics (JSON):</label>
+    <textarea id="recAnimal">
+{
+  "weight": 450,
+  "body_temp": 38.1,
+  "activity_level": 0.8
+}
+    </textarea>
+
+    <button type="submit">Get Recommendations</button>
+  </form>
+
+  <h2>📊 Result:</h2>
+  <pre id="output">Awaiting result...</pre>
+
+  <script>
+    const output = document.getElementById("output");
+
+    document.getElementById("plantForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const payload = {
+        image_path: document.getElementById("plantImage").value,
+        ...JSON.parse(document.getElementById("plantSensorData").value)
+      };
+      const response = await fetch("/analyze_plant/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      output.textContent = JSON.stringify(data, null, 2);
+    });
+
+    document.getElementById("recommendForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const payload = {
+        image_path: document.getElementById("recImage").value,
+        sensor_dict: JSON.parse(document.getElementById("recSensor").value),
+        animal_metrics: JSON.parse(document.getElementById("recAnimal").value)
+      };
+      const response = await fetch("/recommend/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      output.textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
+
