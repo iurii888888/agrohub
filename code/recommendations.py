@@ -5,7 +5,7 @@ based on analysis outputs. Integrates with HealthAnalyzer for end-to-end advisor
 """
 
 import json
-from typing import Dict, List
+from typing import Dict, List, Any
 from code.analysis import HealthAnalyzer
 
 class Recommender:
