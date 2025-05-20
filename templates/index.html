@@ -9,18 +9,8 @@
   <!-- Дождь -->
   <canvas id="rain"></canvas>
 
-  <!-- Облака -->
-  <div id="clouds">
-    <img src="/static/images/cloud.png" class="cloud cloud1" alt="cloud">
-    <img src="/static/images/cloud.png" class="cloud cloud2" alt="cloud">
-    <img src="/static/images/cloud.png" class="cloud cloud3" alt="cloud">
-  </div>
-
   <section class="hero">
-    <!-- Лёгкое затемнение фона -->
     <div class="overlay"></div>
-
-    <!-- Основной контент -->
     <div class="content">
       <h1>🌿 AgroHub AI</h1>
       <p>Plant & Livestock Health Analyzer using AI and Sensor Fusion</p>
@@ -33,8 +23,6 @@
         <img src="/static/backgrounds/plant_gradient_animated.jpg" alt="Background Preview">
       </div>
     </div>
-
-    <!-- Погодная инфо -->
     <div class="weather-box" id="weatherBox">
       <span id="temp"></span><br>
       <span id="humidity"></span><br>
@@ -45,20 +33,13 @@
     </div>
   </section>
 
-  <!-- Рыжий кот в домике -->
-  <div class="cat-container">
-    <img src="/static/images/orange_cat.gif" alt="Orange Cat Licking Paw">
-  </div>
-
   <script>
-    // показать превью фона
     function showBackground() {
       const bg = document.getElementById("bgPreview");
       bg.style.display = "block";
       bg.scrollIntoView({ behavior: "smooth" });
     }
 
-    // погода с wttr.in
     async function fetchWeather() {
       try {
         const res = await fetch("https://wttr.in/?format=j1");
@@ -77,7 +58,7 @@
     }
     fetchWeather();
 
-    // рисуем дождь
+    // дождь
     const canvas = document.getElementById("rain");
     const ctx = canvas.getContext("2d");
     canvas.width = innerWidth;
@@ -109,17 +90,6 @@
       });
     }
     setInterval(drawRain, 33);
-
-    // молнии — фиолетовый flash
-    function flashLightning() {
-      const flash = document.createElement("div");
-      flash.className = "lightning";
-      document.body.appendChild(flash);
-      setTimeout(() => flash.remove(), 200);
-    }
-    setInterval(() => {
-      if (Math.random() < 0.05) flashLightning();
-    }, 1000);
   </script>
 </body>
 </html>
