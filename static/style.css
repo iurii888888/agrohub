@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 2em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.theme-light {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+h1 {
+    color: #90ee90;
+    transition: color 0.3s ease;
+}
+
+form {
+    background-color: #1e1e1e;
+    padding: 1em;
+    border-radius: 8px;
+    margin-bottom: 2em;
+    transition: background-color 0.3s ease;
+}
+
+.theme-light form {
+    background-color: #f0f0f0;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.5em;
+    background-color: #2e2e2e;
+    border: none;
+    color: #fff;
+    margin-bottom: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-light input,
+.theme-light textarea {
+    background-color: #ffffff;
+    color: #000;
+}
+
+button {
+    padding: 0.7em 1.5em;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #388e3c;
+}
+
+pre {
+    background-color: #2e2e2e;
+    padding: 1em;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #dcdcdc;
+}
+
+.theme-light pre {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
