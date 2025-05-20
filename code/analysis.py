@@ -27,7 +27,7 @@ import logging
 import json
 from typing import Dict, Any
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.externals import joblib
+import joblib
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
