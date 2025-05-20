@@ -1,10 +1,23 @@
-
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1b2735);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
   color: white;
   overflow-x: hidden;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero {
@@ -22,14 +35,15 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png'), rgba(0,0,0,0.5);
+  background: url('https://www.transparenttextures.com/patterns/stardust.png'), rgba(0,0,0,0.3);
   background-blend-mode: overlay;
   z-index: 1;
 }
 
 .content {
   z-index: 2;
-  max-width: 600px;
+  max-width: 700px;
+  padding: 20px;
 }
 
 h1 {
@@ -39,7 +53,7 @@ h1 {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 1.5em;
 }
 
@@ -72,3 +86,4 @@ p {
 .btn:hover {
   background: #66bb6a;
 }
+
