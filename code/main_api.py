@@ -1,4 +1,4 @@
-echo "from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile
 from code.analysis import HealthAnalyzer
 from code.recommendations import Recommender
 
@@ -14,4 +14,3 @@ async def analyze_plant(sensor_data: dict):
 @app.post('/recommend/')
 async def get_recommendations(data: dict):
     return recommender.recommend_actions(data['image_path'], data['sensor_dict'], data['animal_metrics'])
-" > ~/smart_agro_deploy/code/main_api.py
