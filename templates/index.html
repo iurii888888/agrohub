@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,23 +38,47 @@
     <h1>AgroHub <span>AI</span></h1>
     <p class="subtitle">Plant &amp; Livestock Health Analyzer using AI and Sensor Fusion</p>
     <div class="main-buttons">
-      <button class="green" id="start-analysis"><img src="/static/images/plant.svg" class="btn-icon"/>Start Analysis</button>
-      <button class="blue" id="get-recommendation"><img src="/static/images/ai.svg" class="btn-icon"/>Get Recommendation</button>
+      <button class="green" id="start-analysis">
+        <img src="/static/images/plant.svg" class="btn-icon" alt="Plant Icon"/>
+        Start Analysis
+      </button>
+      <button class="blue" id="get-recommendation">
+        <img src="/static/images/ai.svg" class="btn-icon" alt="AI Icon"/>
+        Get Recommendation
+      </button>
     </div>
 
     <section class="panel">
       <h2>Actions</h2>
       <div class="panel-buttons">
-        <button id="analyze-plant-button"><img src="/static/images/leaf-icon.svg" class="btn-icon"/>Analyze Plant Health</button>
-        <button id="recommend-button"><img src="/static/images/ai.svg" class="btn-icon"/>Get Recommendation</button>
+        <button id="analyze-plant-button">
+          <img src="/static/images/leaf-icon.svg" class="btn-icon" alt="Leaf Icon"/>
+          Analyze Plant Health
+        </button>
+        <button id="recommend-button">
+          <img src="/static/images/ai.svg" class="btn-icon" alt="AI Icon"/>
+          Get Recommendation
+        </button>
       </div>
     </section>
 
     <div class="dashboard-actions">
-      <button id="upload-data"><img src="/static/images/upload.svg" class="btn-icon"/>Upload Data</button>
-      <button id="generate-report"><img src="/static/images/report.svg" class="btn-icon"/>Generate Report</button>
-      <button id="toggle-background"><img src="/static/images/bg.svg" class="btn-icon"/>Toggle Background</button>
-      <button id="go-github"><img src="/static/images/github.svg" class="btn-icon"/>GitHub</button>
+      <button id="upload-data">
+        <img src="/static/images/upload.svg" class="btn-icon" alt="Upload Icon"/>
+        Upload Data
+      </button>
+      <button id="generate-report">
+        <img src="/static/images/report.svg" class="btn-icon" alt="Report Icon"/>
+        Generate Report
+      </button>
+      <button id="toggle-background">
+        <img src="/static/images/bg.svg" class="btn-icon" alt="Background Icon"/>
+        Toggle Background
+      </button>
+      <button id="go-github">
+        <img src="/static/images/github.svg" class="btn-icon" alt="GitHub Icon"/>
+        GitHub
+      </button>
     </div>
   </main>
 
@@ -71,6 +94,21 @@
     </div>
   </aside>
 
+  <!-- MODAL FOR RESULTS -->
+  <div id="resultModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modalTitle">Result</h2>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- LOADING SPINNER -->
+  <div id="loadingSpinner" class="spinner-overlay hidden">
+    <div class="spinner"></div>
+  </div>
+
   <script src="/static/js/main.js" defer></script>
 </body>
 </html>
+

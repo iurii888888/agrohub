@@ -1,17 +1,27 @@
+/* Подключаем шрифты Poppins и Roboto, задаём CSS-переменные */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+:root {
+  --font-base: 'Roboto', 'Poppins', sans-serif;
+  --color-text: #ffffff;
+  --color-primary: #2196f3;
+  --color-primary-dark: #1976d2;
+  --color-secondary: #4caf50;
+  --color-secondary-dark: #43a047;
+  --elevation: 0 2px 4px rgba(0,0,0,0.2);
+  --elevation-hover: 0 4px 8px rgba(0,0,0,0.3);
+}
 
+/* Базовый фон + анимированный градиент */
 body {
   margin: 0;
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  /* сначала — ваше фоновое фото, затем градиент */
+  font-family: var(--font-base);
+  color: var(--color-text);
   background:
     url('/static/images/bg_full_hd_dark_lines.jpg') no-repeat center center fixed,
     linear-gradient(270deg, #0f2027, #203a43, #2c5364);
-  /* фото растянуть на весь экран, градиент — по анимации */
   background-size: cover, 600% 600%;
   animation: animatedGradient 30s ease infinite;
-  color: white;
   overflow-x: hidden;
   position: relative;
 }
@@ -22,6 +32,24 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* Универсальный стиль для всех кнопок */
+button {
+  font-family: var(--font-base);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: var(--elevation);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: var(--elevation-hover);
+}
+
+/* Навигационная панель */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -55,18 +83,28 @@ body {
 }
 
 .navbar ul li a {
-  color: white;
+  font-family: var(--font-base);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
   text-decoration: none;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.navbar ul li a:hover {
+  border-bottom: 2px solid var(--color-secondary);
 }
 
 .logout-btn {
   background-color: transparent;
-  border: 1px solid white;
+  border: 1px solid var(--color-text);
   padding: 0.5em 1em;
-  color: white;
+  color: var(--color-text);
   border-radius: 8px;
 }
 
+/* Полупрозрачный оверлей сетки */
 .background-overlay {
   position: fixed;
   width: 100%;
@@ -81,6 +119,7 @@ body {
   opacity: 0;
 }
 
+/* Информационная панель слева */
 .info-panel {
   position: absolute;
   top: 100px;
@@ -95,6 +134,9 @@ body {
 
 .info-panel h2 {
   margin-top: 0;
+  font-family: var(--font-base);
+  font-weight: 700;
+  letter-spacing: 1px;
   font-size: 1.5em;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
@@ -104,6 +146,7 @@ body {
   line-height: 1.4;
 }
 
+/* Основное содержимое */
 .main-content {
   margin-left: 350px;
   text-align: center;
@@ -113,6 +156,9 @@ body {
 }
 
 .main-content h1 {
+  font-family: var(--font-base);
+  font-weight: 700;
+  letter-spacing: 2px;
   font-size: 4em;
   text-transform: uppercase;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
@@ -123,22 +169,35 @@ body {
   text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
 }
 
-.main-buttons .green, .main-buttons .blue {
-  padding: 1em 2em;
+.main-content .subtitle {
+  font-family: var(--font-base);
+  font-weight: 400;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5em;
+}
+
+/* Кнопки старта и рекомендации */
+.main-buttons .green {
+  background-color: var(--color-secondary);
+  padding: 0.75em 1.5em;
+  color: var(--color-text);
   margin: 0.5em;
-  border-radius: 30px;
-  font-size: 1em;
-  border: none;
 }
 
-.green {
-  background-color: #4caf50;
-  color: white;
+.main-buttons .green:hover {
+  background-color: var(--color-secondary-dark);
 }
 
-.blue {
-  background-color: #2196f3;
-  color: white;
+.main-buttons .blue {
+  background-color: var(--color-primary);
+  padding: 0.75em 1.5em;
+  color: var(--color-text);
+  margin: 0.5em;
+}
+
+.main-buttons .blue:hover {
+  background-color: var(--color-primary-dark);
 }
 
 .btn-icon {
@@ -147,6 +206,7 @@ body {
   vertical-align: middle;
 }
 
+/* Панель действий */
 .panel {
   margin: 2em auto;
   padding: 2em;
@@ -159,11 +219,11 @@ body {
   margin: 0.5em;
   padding: 1em 2em;
   border-radius: 10px;
-  border: none;
   background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  color: var(--color-text);
 }
 
+/* Нижняя панель кнопок */
 .dashboard-actions {
   display: flex;
   justify-content: center;
@@ -174,11 +234,11 @@ body {
 .dashboard-actions button {
   padding: 1em 1.5em;
   border-radius: 10px;
-  border: none;
   background-color: rgba(255,255,255,0.1);
-  color: white;
+  color: var(--color-text);
 }
 
+/* Виджеты справа */
 .widgets {
   position: absolute;
   top: 5em;
@@ -195,3 +255,68 @@ body {
   border-radius: 10px;
   width: 200px;
 }
+
+/* ========== MODAL ========== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  padding: 1.5em;
+  position: relative;
+}
+.modal-content h2 {
+  margin-top: 0;
+  font-family: var(--font-base);
+  color: #333;
+}
+.modal-body {
+  max-height: 60vh;
+  overflow: auto;
+  font-family: var(--font-base);
+  color: #555;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* ========== SPINNER ========== */
+.hidden { display: none !important; }
+
+.spinner-overlay {
+  display: flex;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.7);
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+.spinner {
+  width: 50px; height: 50px;
+  border: 6px solid #ccc;
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
