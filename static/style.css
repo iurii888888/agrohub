@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -7,19 +8,18 @@ body {
   color: white;
   overflow-x: hidden;
 }
-
 @keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
+canvas#rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
 .hero {
   height: 100vh;
   position: relative;
@@ -28,7 +28,6 @@ body {
   align-items: center;
   text-align: center;
 }
-
 .overlay {
   position: absolute;
   top: 0;
@@ -39,31 +38,26 @@ body {
   background-blend-mode: overlay;
   z-index: 1;
 }
-
 .content {
   z-index: 2;
   max-width: 700px;
   padding: 20px;
 }
-
 h1 {
   font-size: 3rem;
   margin-bottom: 0.5em;
   color: #90ee90;
 }
-
 p {
   font-size: 1.3rem;
   margin-bottom: 1.5em;
 }
-
 .buttons {
   display: flex;
   justify-content: center;
   gap: 1em;
   flex-wrap: wrap;
 }
-
 .btn {
   padding: 0.75em 1.5em;
   font-size: 1rem;
@@ -73,34 +67,24 @@ p {
   text-decoration: none;
   transition: background 0.3s;
 }
-
 .btn.secondary {
   background: #2196f3;
 }
-
 .btn.outline {
   background: transparent;
   border: 2px solid white;
 }
-
 .btn:hover {
   background: #66bb6a;
 }
-
-/* Weather Info Block */
-.weather-info {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1em 1.5em;
-  margin-top: 2em;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 1.1em;
-  text-align: center;
-  animation: slideUp 1.3s ease-in-out;
+.weather-box {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  z-index: 3;
 }
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
