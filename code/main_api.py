@@ -13,4 +13,8 @@ async def analyze_plant(sensor_data: dict):
 
 @app.post('/recommend/')
 async def get_recommendations(data: dict):
-    return recommender.recommend_actions(data['image_path'], data['sensor_dict'], data['animal_metrics'])
+    return recommender.recommend_actions(
+        data['image_path'],
+        data['sensor_dict'],
+        data['animal_metrics']
+    )
