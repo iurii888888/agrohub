@@ -4,14 +4,14 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AgroHub AI</title>
-  <link rel="stylesheet" href="/static/css/style.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}"/>
 </head>
 <body>
   <div class="background-overlay"></div>
 
   <header class="navbar">
     <div class="logo">
-      <img src="/static/images/leaf-icon.svg" alt="Logo" class="icon"/>
+      <img src="{{ url_for('static', path='images/leaf-icon.svg') }}" alt="Logo" class="icon"/>
       AgroHub <span>AI</span>
     </div>
     <nav>
@@ -39,11 +39,11 @@
     <p class="subtitle">Plant &amp; Livestock Health Analyzer using AI and Sensor Fusion</p>
     <div class="main-buttons">
       <button class="green" id="start-analysis">
-        <img src="/static/images/plant.svg" class="btn-icon" alt="Plant Icon"/>
+        <img src="{{ url_for('static', path='images/plant.svg') }}" class="btn-icon" alt="Plant Icon"/>
         Start Analysis
       </button>
       <button class="blue" id="get-recommendation">
-        <img src="/static/images/ai.svg" class="btn-icon" alt="AI Icon"/>
+        <img src="{{ url_for('static', path='images/ai.svg') }}" class="btn-icon" alt="AI Icon"/>
         Get Recommendation
       </button>
     </div>
@@ -52,11 +52,11 @@
       <h2>Actions</h2>
       <div class="panel-buttons">
         <button id="analyze-plant-button">
-          <img src="/static/images/leaf-icon.svg" class="btn-icon" alt="Leaf Icon"/>
+          <img src="{{ url_for('static', path='images/leaf-icon.svg') }}" class="btn-icon" alt="Leaf Icon"/>
           Analyze Plant Health
         </button>
         <button id="recommend-button">
-          <img src="/static/images/ai.svg" class="btn-icon" alt="AI Icon"/>
+          <img src="{{ url_for('static', path='images/ai.svg') }}" class="btn-icon" alt="AI Icon"/>
           Get Recommendation
         </button>
       </div>
@@ -64,19 +64,19 @@
 
     <div class="dashboard-actions">
       <button id="upload-data">
-        <img src="/static/images/upload.svg" class="btn-icon" alt="Upload Icon"/>
+        <img src="{{ url_for('static', path='images/upload.svg') }}" class="btn-icon" alt="Upload Icon"/>
         Upload Data
       </button>
       <button id="generate-report">
-        <img src="/static/images/report.svg" class="btn-icon" alt="Report Icon"/>
+        <img src="{{ url_for('static', path='images/report.svg') }}" class="btn-icon" alt="Report Icon"/>
         Generate Report
       </button>
       <button id="toggle-background">
-        <img src="/static/images/bg.svg" class="btn-icon" alt="Background Icon"/>
+        <img src="{{ url_for('static', path='images/bg.svg') }}" class="btn-icon" alt="Background Icon"/>
         Toggle Background
       </button>
       <button id="go-github">
-        <img src="/static/images/github.svg" class="btn-icon" alt="GitHub Icon"/>
+        <img src="{{ url_for('static', path='images/github.svg') }}" class="btn-icon" alt="GitHub Icon"/>
         GitHub
       </button>
     </div>
@@ -108,7 +108,7 @@
     <div class="spinner"></div>
   </div>
 
-  <script src="/static/js/main.js" defer></script>
+  <script src="{{ url_for('static', path='js/main.js') }}" defer></script>
 </body>
 </html>
 
