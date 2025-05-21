@@ -45,3 +45,28 @@ async def get_recommendations(data: dict):
         data.get("sensor_dict", {}),
         data.get("animal_metrics", {})
     )
+
+# Шаблонные страницы AgroHub
+@app.get("/dashboard.html", response_class=HTMLResponse)
+async def dashboard(request: Request):
+    return templates.TemplateResponse("dashboard.html", {"request": request})
+
+@app.get("/plant_health.html", response_class=HTMLResponse)
+async def plant_health(request: Request):
+    return templates.TemplateResponse("plant_health.html", {"request": request})
+
+@app.get("/livestock_health.html", response_class=HTMLResponse)
+async def livestock_health(request: Request):
+    return templates.TemplateResponse("livestock_health.html", {"request": request})
+
+@app.get("/alerts.html", response_class=HTMLResponse)
+async def alerts(request: Request):
+    return templates.TemplateResponse("alerts.html", {"request": request})
+
+@app.get("/insights.html", response_class=HTMLResponse)
+async def insights(request: Request):
+    return templates.TemplateResponse("insights.html", {"request": request})
+
+@app.get("/reports.html", response_class=HTMLResponse)
+async def reports(request: Request):
+    return templates.TemplateResponse("reports.html", {"request": request})
