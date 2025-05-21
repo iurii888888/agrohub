@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modal) closeModal();
   });
 
-  // Утилита для запросов и отображения результата
+  // Запрос с модальным результатом
   async function fetchAndShow(endpoint, title, method = 'POST', body = {}) {
     showSpinner();
     try {
@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
     hideSpinner();
   }
 
-  // События для кнопок анализа и рекомендаций
+  // Кнопки анализа
   document.getElementById('start-analysis').addEventListener('click', () => {
     fetchAndShow('/analyze_plant/', 'Analysis Result');
   });
 
   document.getElementById('get-recommendation').addEventListener('click', () => {
-    fetchAndShow('/recommendations/', 'Recommendation', 'GET');
+    fetchAndShow('/recommendations', 'Recommendation');
   });
 
   document.getElementById('analyze-plant-button').addEventListener('click', () => {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('get-recommendation').click();
   });
 
-  // Остальные кнопки (загрузка файла, отчёт, фон, GitHub)
+  // Загрузка файла
   document.getElementById('upload-data').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -75,16 +75,34 @@ document.addEventListener('DOMContentLoaded', () => {
     input.click();
   });
 
-  document.getElementById('generate-report').addEventListener('click', () => {
-    window.open('/generate_report', '_blank');
-  });
+  // Кнопки с переходами
+  document.getElementById('generate-report').onclick = () =>
+    window.location.href = 'generate_report.html';
 
-  document.getElementById('toggle-background').addEventListener('click', () => {
+  document.getElementById('upload-data').onclick = () =>
+    window.location.href = 'upload_data.html';
+
+  document.getElementById('toggle-background').onclick = () =>
     document.querySelector('.background-overlay').classList.toggle('active');
-  });
 
-  document.getElementById('go-github').addEventListener('click', () => {
+  document.getElementById('go-github').onclick = () =>
     window.open('https://github.com/iurii888888/agrohub', '_blank');
+
+  // Переходы по пунктам меню
+  const navLinks = {
+    'Dashboard': 'dashboard.html',
+    'Plant Health': 'plant_health.html',
+    'Livestock Health': 'livestock_health.html',
+    'Alerts': 'alerts.html',
+    'Insights': 'insights.html',
+    'Reports': 'reports.html'
+  };
+
+  document.querySelectorAll('.navbar ul li a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = navLinks[link.textContent.trim()];
+      if (target) window.location.href = target;
+    });
   });
 });
-

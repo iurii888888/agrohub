@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports – AgroHub</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
+      AgroHub <span>AI</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="plant_health.html">Plant Health</a></li>
+        <li><a href="livestock_health.html">Livestock</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+        <li><a href="insights.html">Insights</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1>📄 Smart Reports</h1>
+    <p class="subtitle">Download, view, and analyze automatically generated farm reports</p>
+
+    <section class="panel">
+      <h2>🗂 Recent Reports</h2>
+      <ul>
+        <li><strong>Soil Health Overview</strong> – 21 May 2025 <button>Download PDF</button></li>
+        <li><strong>Livestock Status Summary</strong> – 20 May 2025 <button>Download XLSX</button></li>
+        <li><strong>Irrigation Efficiency</strong> – 19 May 2025 <button>Download PDF</button></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>📊 Report Generator</h2>
+      <p>Select parameters and timeframe:</p>
+      <form>
+        <label>Report Type:</label>
+        <select>
+          <option>Soil Analysis</option>
+          <option>Plant Disease Summary</option>
+          <option>Livestock Movement</option>
+        </select>
+        <br><br>
+        <label>Date Range:</label>
+        <input type="date"> to <input type="date">
+        <br><br>
+        <button type="submit">Generate Report</button>
+      </form>
+    </section>
+
+    <div class="dashboard-actions">
+      <button onclick="window.location.href='dashboard.html'">
+        <img src="/static/images/report.svg" class="btn-icon" />
+        Return to Dashboard
+      </button>
+      <button onclick="window.location.href='index.html'">
+        <img src="/static/images/bg.svg" class="btn-icon" />
+        Back to Home
+      </button>
+    </div>
+  </main>
+
+  <aside class="widgets">
+    <div class="widget">
+      <h3>🕒 Report Queue</h3>
+      <p>1 pending – “Plant Health Weekly”</p>
+    </div>
+    <div class="widget">
+      <h3>📁 Format Options</h3>
+      <p>PDF, CSV, XLSX</p>
+    </div>
+  </aside>
+</body>
+</html>
+

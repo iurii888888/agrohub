@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard – AgroHub</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
+      AgroHub <span>AI</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="plant_health.html">Plant Health</a></li>
+        <li><a href="livestock_health.html">Livestock</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1>🌱 AgroHub Dashboard</h1>
+    <p class="subtitle">Overview of your smart farm’s real-time performance</p>
+
+    <section class="panel">
+      <h2>📊 Live Metrics</h2>
+      <p>
+        Monitor your fields and livestock in real time using AI-enhanced data fusion. Below are some quick stats:
+      </p>
+      <ul>
+        <li><strong>Active Sensors:</strong> 128</li>
+        <li><strong>Field Coverage:</strong> 95%</li>
+        <li><strong>Alert Zones:</strong> 3 critical / 7 moderate</li>
+        <li><strong>Last Sync:</strong> 4 minutes ago</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🧠 AI Recommendations</h2>
+      <p>
+        The system continuously analyzes soil data, plant health, and livestock movement to generate actionable insights. Based on the latest analysis:
+      </p>
+      <ul>
+        <li>💧 <strong>Field A:</strong> Optimize irrigation schedule — 2% overwatered.</li>
+        <li>🌿 <strong>Zone C:</strong> Early disease pattern detected on tomatoes — recommend drone check.</li>
+        <li>🐄 <strong>Livestock:</strong> Movement pattern deviation in 4 units — possible fence breach.</li>
+      </ul>
+    </section>
+
+    <section class="dashboard-actions">
+      <button onclick="window.location.href='plant_health.html'">
+        <img src="/static/images/plant.svg" class="btn-icon" />
+        View Plant Health
+      </button>
+      <button onclick="window.location.href='livestock_health.html'">
+        <img src="/static/images/report.svg" class="btn-icon" />
+        View Livestock
+      </button>
+      <button onclick="window.location.href='alerts.html'">
+        <img src="/static/images/ai.svg" class="btn-icon" />
+        View Alerts
+      </button>
+      <button onclick="window.location.href='index.html'">
+        <img src="/static/images/bg.svg" class="btn-icon" />
+        Back to Home
+      </button>
+    </section>
+  </main>
+
+  <aside class="widgets">
+    <div class="widget">
+      <h3>🌡 Sensor Status</h3>
+      <p>✅ All sensors operational</p>
+    </div>
+    <div class="widget">
+      <h3>📅 Weather</h3>
+      <p>Clear skies, 22°C</p>
+    </div>
+  </aside>
+</body>
+</html>

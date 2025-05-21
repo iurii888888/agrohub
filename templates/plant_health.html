@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plant Health – AgroHub</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
+      AgroHub <span>AI</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="livestock_health.html">Livestock</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1>🌿 Plant Health Monitor</h1>
+    <p class="subtitle">Live AI analysis of crop vitality and risk factors</p>
+
+    <section class="panel">
+      <h2>🌱 Current Vegetation Index</h2>
+      <p>The normalized difference vegetation index (NDVI) from drone and satellite feeds is being analyzed in real time.</p>
+      <ul>
+        <li><strong>Zone A:</strong> 0.85 (Healthy)</li>
+        <li><strong>Zone B:</strong> 0.67 (Moderate)</li>
+        <li><strong>Zone D:</strong> 0.42 (Stressed)</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🦠 Early Disease Detection</h2>
+      <p>AI models detected potential fungal activity in humid zones based on leaf temperature and chlorophyll irregularities.</p>
+      <ul>
+        <li><strong>Tomatoes – Zone C:</strong> Blight markers, recommend spraying within 12 hours.</li>
+        <li><strong>Strawberries – Greenhouse 2:</strong> Powdery mildew detected, activate ventilation system.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>📡 Sensor Sync</h2>
+      <p>Recent data received from field sensors:</p>
+      <ul>
+        <li><strong>Soil Moisture:</strong> 23.5% average</li>
+        <li><strong>Soil pH:</strong> 6.4 (optimal)</li>
+        <li><strong>Ambient Temp:</strong> 21.2°C</li>
+      </ul>
+    </section>
+
+    <div class="dashboard-actions">
+      <button onclick="window.location.href='dashboard.html'">
+        <img src="/static/images/report.svg" class="btn-icon" />
+        Return to Dashboard
+      </button>
+      <button onclick="window.location.href='alerts.html'">
+        <img src="/static/images/ai.svg" class="btn-icon" />
+        View Alerts
+      </button>
+      <button onclick="window.location.href='index.html'">
+        <img src="/static/images/bg.svg" class="btn-icon" />
+        Back to Home
+      </button>
+    </div>
+  </main>
+
+  <aside class="widgets">
+    <div class="widget">
+      <h3>☀ Light</h3>
+      <p>Moderate sunlight (62%)</p>
+    </div>
+    <div class="widget">
+      <h3>💧 Irrigation</h3>
+      <p>Next scheduled: Today at 18:30</p>
+    </div>
+  </aside>
+</body>
+</html>

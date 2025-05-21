@@ -4,7 +4,6 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AgroHub AI</title>
-  <!-- абсолютный путь к CSS -->
   <link rel="stylesheet" href="/static/css/style.css"/>
 </head>
 <body>
@@ -17,12 +16,12 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Plant Health</a></li>
-        <li><a href="#">Livestock Health</a></li>
-        <li><a href="#">Alerts</a></li>
-        <li><a href="#">Insights</a></li>
-        <li><a href="#">Reports</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="plant_health.html">Plant Health</a></li>
+        <li><a href="livestock_health.html">Livestock Health</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="reports.html">Reports</a></li>
       </ul>
     </nav>
     <button class="logout-btn">LogOut</button>
@@ -74,7 +73,7 @@
       </button>
       <button id="toggle-background">
         <img src="/static/images/bg.svg" class="btn-icon" alt="Background Icon"/>
-        Toggle Background
+        Reveal Background
       </button>
       <button id="go-github">
         <img src="/static/images/github.svg" class="btn-icon" alt="GitHub Icon"/>
@@ -84,7 +83,7 @@
   </main>
 
   <aside class="widgets">
-    <!-- если используете FastAPI/Jinja, перенесите сюда {{ weather_block|safe }} -->
+    {{ weather_block | safe }}
     <div class="widget">
       <h3>🐄 Livestock</h3>
       <p>Status: Good</p>
@@ -109,7 +108,7 @@
     <div class="spinner"></div>
   </div>
 
-  <!-- абсолютный путь к JS -->
   <script src="/static/js/main.js" defer></script>
 </body>
 </html>
+

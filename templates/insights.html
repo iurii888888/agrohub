@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insights – AgroHub</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
+      AgroHub <span>AI</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="plant_health.html">Plant Health</a></li>
+        <li><a href="livestock_health.html">Livestock</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1>🔍 AgroHub Insights</h1>
+    <p class="subtitle">AI-driven strategic suggestions and agronomic patterns</p>
+
+    <section class="panel">
+      <h2>📈 Crop Rotation Planning</h2>
+      <p>Based on soil nutrient depletion models and harvest cycles:</p>
+      <ul>
+        <li>Rotate <strong>corn → soybeans</strong> in Zones A, B to restore nitrogen.</li>
+        <li>Implement <strong>cover crops</strong> (clover) in Zone D during off-season.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🌾 Yield Optimization</h2>
+      <p>Data trends show a 7.3% increase in wheat output after integrating drone-based spray targeting + automated irrigation.</p>
+      <ul>
+        <li><strong>Key Factors:</strong> Real-time NDVI + smart irrigation + disease avoidance.</li>
+        <li><strong>Next Step:</strong> Expand same logic to sunflower crops (Zone C).</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>📊 Long-term Patterns</h2>
+      <ul>
+        <li><strong>Humidity/Temp correlation</strong> linked to powdery mildew spikes in greenhouses.</li>
+        <li><strong>Livestock movement data</strong> predicts feeding bottlenecks 36h ahead.</li>
+        <li><strong>Soil temp</strong> rising trends aligned with premature growth in strawberries.</li>
+      </ul>
+    </section>
+
+    <div class="dashboard-actions">
+      <button onclick="window.location.href='dashboard.html'">
+        <img src="/static/images/report.svg" class="btn-icon" />
+        Return to Dashboard
+      </button>
+      <button onclick="window.location.href='index.html'">
+        <img src="/static/images/bg.svg" class="btn-icon" />
+        Back to Home
+      </button>
+    </div>
+  </main>
+
+  <aside class="widgets">
+    <div class="widget">
+      <h3>💡 Tip of the Day</h3>
+      <p>Use soil temperature trends to optimize seeding depth by crop type.</p>
+    </div>
+    <div class="widget">
+      <h3>📅 Last Insight Refresh</h3>
+      <p>Today, 17:35</p>
+    </div>
+  </aside>
+</body>
+</html>

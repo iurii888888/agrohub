@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alerts – AgroHub</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
+      AgroHub <span>AI</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="plant_health.html">Plant Health</a></li>
+        <li><a href="livestock_health.html">Livestock</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1>🚨 Active Alerts</h1>
+    <p class="subtitle">Real-time critical events and recommendations from AI monitoring</p>
+
+    <section class="panel">
+      <h2>🌾 Field Issues</h2>
+      <ul>
+        <li><strong>Zone C:</strong> Fungus alert (chlorosis pattern) — spray within 6h</li>
+        <li><strong>Zone E:</strong> Dry zone – irrigation missed 2 cycles</li>
+        <li><strong>Drone Feed:</strong> Leaf spotting detected over sweetcorn area</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🐄 Livestock Alerts</h2>
+      <ul>
+        <li><strong>Cow #24:</strong> No movement in last 4 hours (Zone B)</li>
+        <li><strong>Feeder anomaly:</strong> Refill failed at 11:00 – check valve sensor</li>
+        <li><strong>Temperature warning:</strong> Barn 3 exceeded 30°C</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>⚙ System Alerts</h2>
+      <ul>
+        <li><strong>Sensor #183:</strong> Battery < 5%</li>
+        <li><strong>Network node 4:</strong> Lost connection – last ping 17:48</li>
+        <li><strong>Weather Sync:</strong> Failed to fetch forecast (retrying...)</li>
+      </ul>
+    </section>
+
+    <div class="dashboard-actions">
+      <button onclick="window.location.href='dashboard.html'">
+        <img src="/static/images/report.svg" class="btn-icon" />
+        Return to Dashboard
+      </button>
+      <button onclick="window.location.href='index.html'">
+        <img src="/static/images/bg.svg" class="btn-icon" />
+        Back to Home
+      </button>
+    </div>
+  </main>
+
+  <aside class="widgets">
+    <div class="widget">
+      <h3>🔔 Alert Types</h3>
+      <p>Field • Livestock • Sensor • Network</p>
+    </div>
+    <div class="widget">
+      <h3>📅 Last Sync</h3>
+      <p>Today, 18:02</p>
+    </div>
+  </aside>
+</body>
+</html>

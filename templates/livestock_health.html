@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Livestock Health – AgroHub</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
+      AgroHub <span>AI</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="plant_health.html">Plant Health</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1>🐄 Livestock Monitoring</h1>
+    <p class="subtitle">Track health, behavior and alerts from your herd</p>
+
+    <section class="panel">
+      <h2>📡 Sensor Activity</h2>
+      <p>Wearable trackers are analyzing biometric and positional data.</p>
+      <ul>
+        <li><strong>Total Animals Monitored:</strong> 67</li>
+        <li><strong>Devices Online:</strong> 65 / 67</li>
+        <li><strong>Avg Body Temp:</strong> 38.6°C</li>
+        <li><strong>Unusual Movement:</strong> 3 cows flagged in Zone E</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>🧠 AI Health Anomalies</h2>
+      <p>AgroHub’s neural network detected potential issues:</p>
+      <ul>
+        <li><strong>Cow #42:</strong> Low activity over 18h, possible illness</li>
+        <li><strong>Cow #18:</strong> Elevated heart rate, investigate dehydration</li>
+        <li><strong>Zone B:</strong> Clustered inactivity, suggest fence check</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>📋 Daily Summary</h2>
+      <ul>
+        <li>✔ 63 stable</li>
+        <li>⚠ 2 flagged for attention</li>
+        <li>🔁 Feed system calibrated</li>
+        <li>💧 Water refill at 07:00, 14:00, 20:00</li>
+      </ul>
+    </section>
+
+    <div class="dashboard-actions">
+      <button onclick="window.location.href='dashboard.html'">
+        <img src="/static/images/report.svg" class="btn-icon" />
+        Return to Dashboard
+      </button>
+      <button onclick="window.location.href='alerts.html'">
+        <img src="/static/images/ai.svg" class="btn-icon" />
+        View Alerts
+      </button>
+      <button onclick="window.location.href='index.html'">
+        <img src="/static/images/bg.svg" class="btn-icon" />
+        Back to Home
+      </button>
+    </div>
+  </main>
+
+  <aside class="widgets">
+    <div class="widget">
+      <h3>📍 GPS Map</h3>
+      <p>Live herd map available → <a href="#">View</a></p>
+    </div>
+    <div class="widget">
+      <h3>🥩 Feed Control</h3>
+      <p>Feeder system active – next load: 17:30</p>
+    </div>
+  </aside>
+</body>
+</html>
