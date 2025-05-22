@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('get-recommendation').addEventListener('click', () => {
-    fetchAndShow('/recommendations', 'Recommendation');
+    fetchAndShow('/recommend', 'Recommendation');
   });
 
   document.getElementById('analyze-plant-button').addEventListener('click', () => {
