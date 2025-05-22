@@ -61,27 +61,25 @@ class Recommender:
         return actions
 
     def recommend_actions(
-    self, plant_image: str, plant_sensors: Dict[str, float], animal_metrics: Dict[str, float]
-) -> Dict[str, List[str]]:
-    """Combined recommendations pipeline for both plants and animals."""
+        self, plant_image: str, plant_sensors: Dict[str, float], animal_metrics: Dict[str, float]
+    ) -> Dict[str, List[str]]:
+        """Combined recommendations pipeline for both plants and animals."""
+        try:
+            plant_sensors = plant_sensors or {}
+            animal_metrics = animal_metrics or {}
 
-    try:
-        plant_sensors = plant_sensors or {}
-        animal_metrics = animal_metrics or {}
+            plant_report = self.analyzer.analyze_plant_health(plant_image, plant_sensors)
+            animal_report = self.analyzer.analyze_animal_health(animal_metrics)
 
-        plant_report = self.analyzer.analyze_plant_health(plant_image, plant_sensors)
-        animal_report = self.analyzer.analyze_animal_health(animal_metrics)
+            return {
+                'plant_recommendations': self.generate_plant_recommendations(plant_report),
+                'animal_recommendations': self.generate_animal_recommendations(animal_report)
+            }
 
-        return {
-            'plant_recommendations': self.generate_plant_recommendations(plant_report),
-            'animal_recommendations': self.generate_animal_recommendations(animal_report)
-        }
-
-    except Exception as e:
-        return {
-            "error": f"Recommendation generation failed: {str(e)}"
-        }
-
+        except Exception as e:
+            return {
+                "error": f"Recommendation generation failed: {str(e)}"
+            }
 
 if __name__ == '__main__':
     rec = Recommender()
