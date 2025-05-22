@@ -64,6 +64,7 @@ class Recommender:
     self, plant_image: str, plant_sensors: Dict[str, float], animal_metrics: Dict[str, float]
 ) -> Dict[str, List[str]]:
     """Combined recommendations pipeline for both plants and animals."""
+
     try:
         plant_sensors = plant_sensors or {}
         animal_metrics = animal_metrics or {}
