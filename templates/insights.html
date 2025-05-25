@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Insights – AgroHub</title>
+  <title data-i18n="insights.title">Insights – AgroHub</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -11,78 +11,85 @@
   <header class="navbar">
     <div class="logo">
       <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
-      AgroHub <span>AI</span>
+      <span data-i18n="title">AgroHub <span>AI</span></span>
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="plant_health.html">Plant Health</a></li>
-        <li><a href="livestock_health.html">Livestock</a></li>
-        <li><a href="alerts.html">Alerts</a></li>
-        <li><a href="reports.html">Reports</a></li>
+        <li><a href="index.html" data-i18n="menu.home">Home</a></li>
+        <li><a href="dashboard.html" data-i18n="menu.dashboard">Dashboard</a></li>
+        <li><a href="plant_health.html" data-i18n="menu.plant">Plant Health</a></li>
+        <li><a href="livestock_health.html" data-i18n="menu.livestock">Livestock</a></li>
+        <li><a href="alerts.html" data-i18n="menu.alerts">Alerts</a></li>
+        <li><a href="reports.html" data-i18n="menu.reports">Reports</a></li>
+        <li>
+          <select id="language-switcher" class="lang-dropdown">
+            <option value="en">🇬🇧 EN</option>
+            <option value="ru">🇷🇺 RU</option>
+            <option value="ka">🇬🇪 KA</option>
+          </select>
+        </li>
       </ul>
     </nav>
   </header>
 
   <main class="main-content">
-    <h1>🔍 AgroHub Insights</h1>
-    <p class="subtitle">AI-driven strategic suggestions and agronomic patterns</p>
+    <h1 data-i18n="insights.title">🔍 AgroHub Insights</h1>
+    <p class="subtitle" data-i18n="insights.subtitle">AI-driven strategic suggestions and agronomic patterns</p>
 
     <section class="panel">
-      <h2>📈 Crop Rotation Planning</h2>
-      <p>Based on soil nutrient depletion models and harvest cycles:</p>
+      <h2 data-i18n="insights.rotation.title">📈 Crop Rotation Planning</h2>
+      <p data-i18n="insights.rotation.desc">Based on soil nutrient depletion models and harvest cycles:</p>
       <ul>
-        <li>Rotate <strong>corn → soybeans</strong> in Zones A, B to restore nitrogen.</li>
-        <li>Implement <strong>cover crops</strong> (clover) in Zone D during off-season.</li>
+        <li data-i18n="insights.rotation.tip1">Rotate <strong>corn → soybeans</strong> in Zones A, B to restore nitrogen.</li>
+        <li data-i18n="insights.rotation.tip2">Implement <strong>cover crops</strong> (clover) in Zone D during off-season.</li>
       </ul>
     </section>
 
     <section class="panel">
-      <h2>🌾 Yield Optimization</h2>
-      <p>Data trends show a 7.3% increase in wheat output after integrating drone-based spray targeting + automated irrigation.</p>
+      <h2 data-i18n="insights.yield.title">🌾 Yield Optimization</h2>
+      <p data-i18n="insights.yield.desc">Data trends show a 7.3% increase in wheat output after integrating drone-based spray targeting + automated irrigation.</p>
       <ul>
-        <li><strong>Key Factors:</strong> Real-time NDVI + smart irrigation + disease avoidance.</li>
-        <li><strong>Next Step:</strong> Expand same logic to sunflower crops (Zone C).</li>
+        <li data-i18n="insights.yield.factor">Key Factors: Real-time NDVI + smart irrigation + disease avoidance.</li>
+        <li data-i18n="insights.yield.next">Next Step: Expand same logic to sunflower crops (Zone C).</li>
       </ul>
     </section>
 
     <section class="panel">
-      <h2>📊 Long-term Patterns</h2>
+      <h2 data-i18n="insights.longterm.title">📊 Long-term Patterns</h2>
       <ul>
-        <li><strong>Humidity/Temp correlation</strong> linked to powdery mildew spikes in greenhouses.</li>
-        <li><strong>Livestock movement data</strong> predicts feeding bottlenecks 36h ahead.</li>
-        <li><strong>Soil temp</strong> rising trends aligned with premature growth in strawberries.</li>
+        <li data-i18n="insights.longterm.humidity">Humidity/Temp correlation linked to powdery mildew spikes in greenhouses.</li>
+        <li data-i18n="insights.longterm.feed">Livestock movement data predicts feeding bottlenecks 36h ahead.</li>
+        <li data-i18n="insights.longterm.strawberries">Soil temp rising trends aligned with premature growth in strawberries.</li>
       </ul>
     </section>
 
     <div class="dashboard-actions">
       <button onclick="window.location.href='dashboard.html'">
         <img src="/static/images/report.svg" class="btn-icon" />
-        Return to Dashboard
+        <span data-i18n="actions.dashboard">Return to Dashboard</span>
       </button>
       <button onclick="window.location.href='index.html'">
         <img src="/static/images/bg.svg" class="btn-icon" />
-        Back to Home
+        <span data-i18n="menu.home">Back to Home</span>
       </button>
-
-      <!-- ✅ Добавлено -->
-      <button onclick="history.back()">◀ Go Back</button>
-      <button onclick="history.forward()">▶ Forward</button>
-      <button onclick="window.location.href='sitemap.html'">📍 Sitemap</button>
+      <button onclick="history.back()">◀ <span data-i18n="actions.back">Go Back</span></button>
+      <button onclick="history.forward()">▶ <span data-i18n="actions.forward">Forward</span></button>
+      <button onclick="window.location.href='sitemap.html'">📍 <span data-i18n="sitemap.title">Sitemap</span></button>
     </div>
   </main>
 
   <aside class="widgets">
     <div class="widget">
-      <h3>💡 Tip of the Day</h3>
-      <p>Use soil temperature trends to optimize seeding depth by crop type.</p>
+      <h3 data-i18n="insights.tip.title">💡 Tip of the Day</h3>
+      <p data-i18n="insights.tip.desc">Use soil temperature trends to optimize seeding depth by crop type.</p>
     </div>
     <div class="widget">
-      <h3>📅 Last Insight Refresh</h3>
-      <p>Today, 17:35</p>
+      <h3 data-i18n="insights.last_refresh">📅 Last Insight Refresh</h3>
+      <p data-i18n="insights.last_time">Today, 17:35</p>
     </div>
   </aside>
+
+  <script src="/static/js/i18n.js" defer></script>
 </body>
 </html>
 

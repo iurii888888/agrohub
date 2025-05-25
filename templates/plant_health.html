@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Plant Health – AgroHub</title>
+  <title data-i18n="plant.title">Plant Health – AgroHub</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -11,83 +11,90 @@
   <header class="navbar">
     <div class="logo">
       <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
-      AgroHub <span>AI</span>
+      <span data-i18n="title">AgroHub <span>AI</span></span>
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="livestock_health.html">Livestock</a></li>
-        <li><a href="alerts.html">Alerts</a></li>
-        <li><a href="insights.html">Insights</a></li>
-        <li><a href="reports.html">Reports</a></li>
+        <li><a href="index.html" data-i18n="menu.home">Home</a></li>
+        <li><a href="dashboard.html" data-i18n="menu.dashboard">Dashboard</a></li>
+        <li><a href="livestock_health.html" data-i18n="menu.livestock">Livestock</a></li>
+        <li><a href="alerts.html" data-i18n="menu.alerts">Alerts</a></li>
+        <li><a href="insights.html" data-i18n="menu.insights">Insights</a></li>
+        <li><a href="reports.html" data-i18n="menu.reports">Reports</a></li>
+        <li>
+          <select id="language-switcher" class="lang-dropdown">
+            <option value="en">🇬🇧 EN</option>
+            <option value="ru">🇷🇺 RU</option>
+            <option value="ka">🇬🇪 KA</option>
+          </select>
+        </li>
       </ul>
     </nav>
   </header>
 
   <main class="main-content">
-    <h1>🌿 Plant Health Monitor</h1>
-    <p class="subtitle">Live AI analysis of crop vitality and risk factors</p>
+    <h1 data-i18n="plant.title">🌿 Plant Health Monitor</h1>
+    <p class="subtitle" data-i18n="plant.subtitle">Live AI analysis of crop vitality and risk factors</p>
 
     <section class="panel">
-      <h2>🌱 Current Vegetation Index</h2>
-      <p>The normalized difference vegetation index (NDVI) from drone and satellite feeds is being analyzed in real time.</p>
+      <h2 data-i18n="plant.ndvi.title">🌱 Current Vegetation Index</h2>
+      <p data-i18n="plant.ndvi.desc">The normalized difference vegetation index (NDVI) from drone and satellite feeds is being analyzed in real time.</p>
       <ul>
-        <li><strong>Zone A:</strong> 0.85 (Healthy)</li>
-        <li><strong>Zone B:</strong> 0.67 (Moderate)</li>
-        <li><strong>Zone D:</strong> 0.42 (Stressed)</li>
+        <li><strong>Zone A:</strong> 0.85 <span data-i18n="plant.status.healthy">(Healthy)</span></li>
+        <li><strong>Zone B:</strong> 0.67 <span data-i18n="plant.status.moderate">(Moderate)</span></li>
+        <li><strong>Zone D:</strong> 0.42 <span data-i18n="plant.status.stressed">(Stressed)</span></li>
       </ul>
     </section>
 
     <section class="panel">
-      <h2>🦠 Early Disease Detection</h2>
-      <p>AI models detected potential fungal activity in humid zones based on leaf temperature and chlorophyll irregularities.</p>
+      <h2 data-i18n="plant.disease.title">🦠 Early Disease Detection</h2>
+      <p data-i18n="plant.disease.desc">AI models detected potential fungal activity in humid zones based on leaf temperature and chlorophyll irregularities.</p>
       <ul>
-        <li><strong>Tomatoes – Zone C:</strong> Blight markers, recommend spraying within 12 hours.</li>
-        <li><strong>Strawberries – Greenhouse 2:</strong> Powdery mildew detected, activate ventilation system.</li>
+        <li><strong data-i18n="plant.tomato.zone">Tomatoes – Zone C:</strong> <span data-i18n="plant.tomato.action">Blight markers, recommend spraying within 12 hours.</span></li>
+        <li><strong data-i18n="plant.strawberry.zone">Strawberries – Greenhouse 2:</strong> <span data-i18n="plant.strawberry.action">Powdery mildew detected, activate ventilation system.</span></li>
       </ul>
     </section>
 
     <section class="panel">
-      <h2>📡 Sensor Sync</h2>
-      <p>Recent data received from field sensors:</p>
+      <h2 data-i18n="plant.sensors.title">📡 Sensor Sync</h2>
+      <p data-i18n="plant.sensors.desc">Recent data received from field sensors:</p>
       <ul>
-        <li><strong>Soil Moisture:</strong> 23.5% average</li>
-        <li><strong>Soil pH:</strong> 6.4 (optimal)</li>
-        <li><strong>Ambient Temp:</strong> 21.2°C</li>
+        <li><strong data-i18n="plant.sensor.moisture">Soil Moisture:</strong> 23.5% average</li>
+        <li><strong data-i18n="plant.sensor.ph">Soil pH:</strong> 6.4 (optimal)</li>
+        <li><strong data-i18n="plant.sensor.temp">Ambient Temp:</strong> 21.2°C</li>
       </ul>
     </section>
 
     <div class="dashboard-actions">
       <button onclick="window.location.href='dashboard.html'">
         <img src="/static/images/report.svg" class="btn-icon" />
-        Return to Dashboard
+        <span data-i18n="actions.dashboard">Return to Dashboard</span>
       </button>
       <button onclick="window.location.href='alerts.html'">
         <img src="/static/images/ai.svg" class="btn-icon" />
-        View Alerts
+        <span data-i18n="menu.alerts">View Alerts</span>
       </button>
       <button onclick="window.location.href='index.html'">
         <img src="/static/images/bg.svg" class="btn-icon" />
-        Back to Home
+        <span data-i18n="menu.home">Back to Home</span>
       </button>
-
-      <!-- ✅ Добавлено -->
-      <button onclick="history.back()">◀ Go Back</button>
-      <button onclick="history.forward()">▶ Forward</button>
-      <button onclick="window.location.href='sitemap.html'">📍 Sitemap</button>
+      <button onclick="history.back()">◀ <span data-i18n="actions.back">Go Back</span></button>
+      <button onclick="history.forward()">▶ <span data-i18n="actions.forward">Forward</span></button>
+      <button onclick="window.location.href='sitemap.html'">📍 <span data-i18n="sitemap.title">Sitemap</span></button>
     </div>
   </main>
 
   <aside class="widgets">
     <div class="widget">
-      <h3>☀ Light</h3>
-      <p>Moderate sunlight (62%)</p>
+      <h3 data-i18n="plant.widget.light">☀ Light</h3>
+      <p data-i18n="plant.widget.light_val">Moderate sunlight (62%)</p>
     </div>
     <div class="widget">
-      <h3>💧 Irrigation</h3>
-      <p>Next scheduled: Today at 18:30</p>
+      <h3 data-i18n="plant.widget.irrigation">💧 Irrigation</h3>
+      <p data-i18n="plant.widget.irrigation_val">Next scheduled: Today at 18:30</p>
     </div>
   </aside>
+
+  <script src="/static/js/i18n.js" defer></script>
 </body>
 </html>

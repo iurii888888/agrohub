@@ -2,38 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sitemap – AgroHub</title>
+  <title data-i18n="sitemap.title">Sitemap – AgroHub</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
   <div class="background-overlay"></div>
+
   <header class="navbar">
     <div class="logo">
       <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
-      AgroHub <span>AI</span>
+      <span data-i18n="title">AgroHub <span>AI</span></span>
     </div>
+    <nav>
+      <ul>
+        <li>
+          <select id="language-switcher" class="lang-dropdown">
+            <option value="en">🇬🇧 EN</option>
+            <option value="ru">🇷🇺 RU</option>
+            <option value="ka">🇬🇪 KA</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main class="main-content">
-    <h1>📍 Sitemap</h1>
-    <p class="subtitle">Quick access to all major pages of the AgroHub platform</p>
+    <h1 data-i18n="sitemap.title">📍 Sitemap</h1>
+    <p class="subtitle" data-i18n="sitemap.subtitle">Quick access to all major pages of the AgroHub platform</p>
 
     <section class="panel">
       <ul>
-        <li><a href="index.html">🏠 Home</a></li>
-        <li><a href="dashboard.html">📊 Dashboard</a></li>
-        <li><a href="plant_health.html">🌿 Plant Health</a></li>
-        <li><a href="livestock_health.html">🐄 Livestock Health</a></li>
-        <li><a href="alerts.html">🚨 Alerts</a></li>
-        <li><a href="insights.html">🔍 Insights</a></li>
-        <li><a href="reports.html">📄 Reports</a></li>
+        <li><a href="index.html" data-i18n="menu.home">🏠 Home</a></li>
+        <li><a href="dashboard.html" data-i18n="menu.dashboard">📊 Dashboard</a></li>
+        <li><a href="plant_health.html" data-i18n="menu.plant">🌿 Plant Health</a></li>
+        <li><a href="livestock_health.html" data-i18n="menu.livestock">🐄 Livestock Health</a></li>
+        <li><a href="alerts.html" data-i18n="menu.alerts">🚨 Alerts</a></li>
+        <li><a href="insights.html" data-i18n="menu.insights">🔍 Insights</a></li>
+        <li><a href="reports.html" data-i18n="menu.reports">📄 Reports</a></li>
       </ul>
     </section>
 
     <div class="dashboard-actions">
-      <button onclick="history.back()">◀ Go Back</button>
-      <button onclick="window.location.href='index.html'">🏠 Home</button>
+      <button onclick="history.back()" data-i18n="actions.back">◀ Go Back</button>
+      <button onclick="window.location.href='index.html'" data-i18n="menu.home">🏠 Home</button>
     </div>
   </main>
+
+  <script src="/static/js/i18n.js" defer></script>
 </body>
 </html>

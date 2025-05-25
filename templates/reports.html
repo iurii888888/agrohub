@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Reports – AgroHub</title>
+  <title data-i18n="reports.title">Reports – AgroHub</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -11,78 +11,85 @@
   <header class="navbar">
     <div class="logo">
       <img src="/static/images/leaf-icon.svg" class="icon" alt="Logo" />
-      AgroHub <span>AI</span>
+      <span data-i18n="title">AgroHub <span>AI</span></span>
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="plant_health.html">Plant Health</a></li>
-        <li><a href="livestock_health.html">Livestock</a></li>
-        <li><a href="alerts.html">Alerts</a></li>
-        <li><a href="insights.html">Insights</a></li>
+        <li><a href="index.html" data-i18n="menu.home">Home</a></li>
+        <li><a href="dashboard.html" data-i18n="menu.dashboard">Dashboard</a></li>
+        <li><a href="plant_health.html" data-i18n="menu.plant">Plant Health</a></li>
+        <li><a href="livestock_health.html" data-i18n="menu.livestock">Livestock</a></li>
+        <li><a href="alerts.html" data-i18n="menu.alerts">Alerts</a></li>
+        <li><a href="insights.html" data-i18n="menu.insights">Insights</a></li>
+        <li>
+          <select id="language-switcher" class="lang-dropdown">
+            <option value="en">🇬🇧 EN</option>
+            <option value="ru">🇷🇺 RU</option>
+            <option value="ka">🇬🇪 KA</option>
+          </select>
+        </li>
       </ul>
     </nav>
   </header>
 
   <main class="main-content">
-    <h1>📄 Smart Reports</h1>
-    <p class="subtitle">Download, view, and analyze automatically generated farm reports</p>
+    <h1 data-i18n="reports.title">📄 Smart Reports</h1>
+    <p class="subtitle" data-i18n="reports.subtitle">Download, view, and analyze automatically generated farm reports</p>
 
     <section class="panel">
-      <h2>🗂 Recent Reports</h2>
+      <h2 data-i18n="reports.recent">🗂 Recent Reports</h2>
       <ul>
-        <li><strong>Soil Health Overview</strong> – 21 May 2025 <button>Download PDF</button></li>
-        <li><strong>Livestock Status Summary</strong> – 20 May 2025 <button>Download XLSX</button></li>
-        <li><strong>Irrigation Efficiency</strong> – 19 May 2025 <button>Download PDF</button></li>
+        <li><strong data-i18n="reports.report.soil">Soil Health Overview</strong> – 21 May 2025 <button data-i18n="reports.download">Download PDF</button></li>
+        <li><strong data-i18n="reports.report.livestock">Livestock Status Summary</strong> – 20 May 2025 <button data-i18n="reports.download">Download XLSX</button></li>
+        <li><strong data-i18n="reports.report.irrigation">Irrigation Efficiency</strong> – 19 May 2025 <button data-i18n="reports.download">Download PDF</button></li>
       </ul>
     </section>
 
     <section class="panel">
-      <h2>📊 Report Generator</h2>
-      <p>Select parameters and timeframe:</p>
+      <h2 data-i18n="reports.generator">📊 Report Generator</h2>
+      <p data-i18n="reports.instructions">Select parameters and timeframe:</p>
       <form>
-        <label>Report Type:</label>
+        <label data-i18n="reports.type">Report Type:</label>
         <select>
-          <option>Soil Analysis</option>
-          <option>Plant Disease Summary</option>
-          <option>Livestock Movement</option>
+          <option data-i18n="reports.type.soil">Soil Analysis</option>
+          <option data-i18n="reports.type.plant">Plant Disease Summary</option>
+          <option data-i18n="reports.type.livestock">Livestock Movement</option>
         </select>
         <br><br>
-        <label>Date Range:</label>
-        <input type="date"> to <input type="date">
+        <label data-i18n="reports.range">Date Range:</label>
+        <input type="date"> <span data-i18n="reports.to">to</span> <input type="date">
         <br><br>
-        <button type="submit">Generate Report</button>
+        <button type="submit" data-i18n="reports.generate">Generate Report</button>
       </form>
     </section>
 
     <div class="dashboard-actions">
       <button onclick="window.location.href='dashboard.html'">
         <img src="/static/images/report.svg" class="btn-icon" />
-        Return to Dashboard
+        <span data-i18n="actions.dashboard">Return to Dashboard</span>
       </button>
       <button onclick="window.location.href='index.html'">
         <img src="/static/images/bg.svg" class="btn-icon" />
-        Back to Home
+        <span data-i18n="menu.home">Back to Home</span>
       </button>
-
-      <!-- ✅ Добавлено -->
-      <button onclick="history.back()">◀ Go Back</button>
-      <button onclick="history.forward()">▶ Forward</button>
-      <button onclick="window.location.href='sitemap.html'">📍 Sitemap</button>
+      <button onclick="history.back()">◀ <span data-i18n="actions.back">Go Back</span></button>
+      <button onclick="history.forward()">▶ <span data-i18n="actions.forward">Forward</span></button>
+      <button onclick="window.location.href='sitemap.html'">📍 <span data-i18n="sitemap.title">Sitemap</span></button>
     </div>
   </main>
 
   <aside class="widgets">
     <div class="widget">
-      <h3>🕒 Report Queue</h3>
-      <p>1 pending – “Plant Health Weekly”</p>
+      <h3 data-i18n="reports.queue">🕒 Report Queue</h3>
+      <p data-i18n="reports.queue_status">1 pending – “Plant Health Weekly”</p>
     </div>
     <div class="widget">
-      <h3>📁 Format Options</h3>
-      <p>PDF, CSV, XLSX</p>
+      <h3 data-i18n="reports.formats">📁 Format Options</h3>
+      <p data-i18n="reports.format_list">PDF, CSV, XLSX</p>
     </div>
   </aside>
+
+  <script src="/static/js/i18n.js" defer></script>
 </body>
 </html>
 
